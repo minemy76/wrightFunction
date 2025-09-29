@@ -1,7 +1,4 @@
 #include <iostream>
-#include <complex>
-#include <cmath> 
-#include <math.h> 
 #include "constants.h"
 #include "header.h"
 
