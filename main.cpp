@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    setlocale(LC_ALL, "RU");
+    system("chcp 1251");
     userInput::userInput();
     mathFunctions::wrightFunction();
     return 0;
