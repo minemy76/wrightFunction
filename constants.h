@@ -1,7 +1,6 @@
 #pragma once
 
-// онстанты задающиес€ апроксимацией на отрезке [0, 1]
-
+//Constants that are given by approximation on the interval [0, 1]
 const double a1 = -0.5748646;
 const double a2 = 0.9512363;
 const double a3 = -0.6998588;

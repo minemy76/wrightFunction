@@ -3,11 +3,11 @@
 #include <cmath> 
 #include <iostream>
 
-//Вычисление факториала 
+//Calculating the factorial
 
 unsigned long long mathFunctions::factorial(int n) {
     if (n < 0) {
-        throw std::invalid_argument("Факториал не определен для отрицательных чисел.");
+        throw std::invalid_argument("The factorial is not defined for negative numbers.");
     }
     unsigned long long result = 1;
     for (int i = 1; i <= n; ++i) {
@@ -16,7 +16,7 @@ unsigned long long mathFunctions::factorial(int n) {
     return result;
 }
 
-//Вычисление гамма функции на отрезке [0, 1]
+//Calculating the gamma function on the interval [0, 1]
 
 double mathFunctions::gammaBef1(double rac) {
     double gammaapx;
@@ -24,7 +24,7 @@ double mathFunctions::gammaBef1(double rac) {
     return gammaapx;
 }
 
-//Так как Г(х) = Г(х-1)*(х-1)=Г(x-2)*(x-2)*(x-1)=..., то можно дойти до того момента пока х будет лежать в интервале между 0 и 1, тогда:
+//G(x) = G(x-1)*(x-1)=G(x-2)*(x-2)*(x-1)=..., then you can reach the point where x lies in the interval between 0 and 1, then:
 double mathFunctions::gamma(double a) {
     double k = a - 1;
     double x = a - 1;
@@ -45,7 +45,7 @@ double mathFunctions::gamma(double a) {
     }
 }
 
-//Собираем все формулы вместе
+//Putting all the formulas together
 
 double mathFunctions::wrightFunction() {
     int k = 0;
@@ -54,29 +54,29 @@ double mathFunctions::wrightFunction() {
         wrightFunction += pow(z, k) / (mathFunctions::factorial(k) * mathFunctions::gamma(p * k + b));
         checker = pow(z, k) / (mathFunctions::factorial(k) * mathFunctions::gamma(p * k + b));
         if (checker <= aprx) {
-            std::cout << "Функция Райтта равна : " << wrightFunction;
+            std::cout << "The Wright function is equal to: " << wrightFunction;
             return wrightFunction;
         }
         k++;
     }
 }
 
-/*Ввод переменных пользователем*/
+//Input
 
 double userInput::userInput() {
-    std::cout << "Введите число z(-inf; +inf)"
+    std::cout << "Enter the number z(-inf; +inf)"
         << std::endl;
     std::cin >> z;
-    std::cout << "Введите переменную p > -1:"
+    std::cout << "Enter the variable p > -1:"
         << std::endl;
     std::cin >> p;
-    std::cout << "Введите число b:"
+    std::cout << "Enter the number b:"
         << std::endl;
     std::cin >> b;
 
     try {
         if (p <= -1) {
-            throw "Число < -1";
+            throw "Number < -1 ";
         }
     }
     catch (const char* errorMessage) {
